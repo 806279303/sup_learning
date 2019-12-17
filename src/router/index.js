@@ -6,7 +6,14 @@ import Task from '@/view/tasks'
 import InsertTask from '@/view/insertTask'
 import Social from '@/view/social'
 import User from '@/view/user'
+import UserInfo from '@/view/userInfo'
+import UserCollection from '@/view/userCollection'
 
+//解决路由重复点击报错
+const originalPush = Router.prototype.push
+Router.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err)
+}
 Vue.use(Router)
 
 export default new Router({
@@ -40,7 +47,20 @@ export default new Router({
         {
           path: '/user',
           name: 'User',
-          component: User
+          component: User,
+          redirect: '/user/userInfo',
+          children: [
+            {
+              path: '/user/userInfo',
+              name: 'UserInfo',
+              component: UserInfo
+            },
+            {
+              path: '/user/userCollection',
+              name: 'UserCollection',
+              component: UserCollection
+            },
+          ]
         },
       ]
     }

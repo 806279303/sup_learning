@@ -11,6 +11,7 @@ export default {
 </script>
 
 <style>
+@import './css/main.css';
 *{
   margin:0;
   padding:0;

@@ -69,6 +69,10 @@ module.exports = {
         test: /\.(eot|svg|ttf|woff|woff2)(\?\S*)?$/,
         loader: 'file-loader'
       },
+      {
+        test: /.sass$/,
+        loaders: ['style', 'css', 'sass']
+      }
     ]
   },
   node: {

@@ -1,6 +1,18 @@
 <template>
      <el-container>
           <div id="s-content">
+               <div class="s-content-header">
+                    <el-row>
+                         <el-select v-model="value" placeholder="请选择">
+                              <el-option
+                                   v-for="item in options"
+                                   :key="item.value"
+                                   :label="item.label"
+                                   :value="item.value">
+                              </el-option>
+                         </el-select>
+                    </el-row>
+               </div>
                <div class="s-row" v-for="item in sdata" :key="item.id">
                     <el-row>
                          <h2>{{item.title}}</h2>
@@ -29,6 +41,7 @@ export default {
      name:"social",
      data(){
           return {
+               value:0,
                sdata:[
                     {
                        title:'这是标题1',
@@ -40,6 +53,10 @@ export default {
                        description:'这是描述描述这是描述描述这是描述描述这是描述描述',
                          publicName:"bowei"
                     },     
+               ],
+               options:[
+                    {label:'最近',value:0},
+                    {label:'最热',value:1},
                ]
           }
      }

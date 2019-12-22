@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Login from '@/view/login'
 import Layout from '@/view/layout'
 import Task from '@/view/tasks'
+import TaskDetail from '@/view/taskDetail'
 import InsertTask from '@/view/insertTask'
 import Social from '@/view/social'
 import User from '@/view/user'
@@ -33,6 +34,11 @@ export default new Router({
           path: '/task',
           name: 'Task',
           component: Task
+        },
+        {
+          path: '/taskDetail',
+          name: 'TaskDetail',
+          component: TaskDetail
         },
         {
           path: '/insertTask',
